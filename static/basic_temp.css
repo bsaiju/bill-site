@@ -1,0 +1,76 @@
+/* .row {
+    font-family: 'Times New Roman';
+    background-color: rgb(255, 99, 71, 0.6);
+    border: 3px solid dodgerblue;
+} */
+
+.content {
+    /* border: 3px solid red; */
+    display: grid;
+    margin-inline: 30%;
+    /* align-self: center;
+    align-items: center; */
+    justify-content: center;
+}
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: rgb(145, 145, 222);
+    /* padding: auto; */
+    /* margin: 10px; */
+}
+
+.header {
+    background: orange;
+    /* background-color: tomato; */
+    border-radius: 10px;
+    /* padding: 30px; */
+    /* clear: both; */
+    display: inline-flexbox row;
+    margin: auto;
+    align-content: space-evenly;
+    /* overflow: hidden; */
+
+
+    /* margin-bottom: 20px; */
+}
+
+input[type=text] {
+    border-radius: 10px;
+    border: 2px;
+    background: white;
+    color: black;
+}
+
+
+.client-list {
+    /* border: 3px solid black; */
+    background: white;
+    margin: 0;
+    padding: 5px;
+}
+
+
+.topnav a {
+    float: none;
+    padding: 0;
+    color: white;
+    text-align: center;
+    /* padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px; */
+}
+
+.topnav div {
+    text-align: center;
+    /* padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px; */
+}

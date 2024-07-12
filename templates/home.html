@@ -1,0 +1,16 @@
+{% extends "generic.html" %}
+{% block content %}
+<div class="col content">
+    <h1 class="row">Home</h1>
+    <input class="row" type="text" placeholder="">
+    <div class="client-list row">
+        <hr>
+        {% for list in data%}
+        <article class="client-list row">
+            <span>{{list[0]}}, {{list[1]}}</span><br>
+            <hr>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
