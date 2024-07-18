@@ -2,15 +2,45 @@
 {% block content %}
 <div class="col content">
     <h1 class="row">Home</h1>
-    <input class="row" type="text" placeholder="">
+    <input class="row searchbar" type="text" placeholder="">
     <div class="client-list row">
         <hr>
-        {% for list in data%}
-        <article class="client-list row">
-            <span>{{list[0]}}, {{list[1]}}</span><br>
-            <hr>
-        </article>
-        {% endfor %}
+        <meta id="list_data" value='{{ data }}'>
     </div>
+    <script>
+        var vari = [];
+        var t_data = document.getElementById("list_data").getAttribute("value")
+        t_data = t_data.replace(/'/g, '"')
+        t_data = JSON.parse(t_data)
+        console.log(t_data);
+        let el = document.getElementsByClassName('row searchbar')[0]; el.addEventListener('input', function
+            fElChange(elChangeEvt) {
+            console.log(t_data);
+            vari = [];
+            var cli_list = document.getElementsByClassName('client-list.row');
+            while (cli_list.item(0) != null) {
+                cli_list.item(0).remove();
+            }
+            //go through client-list to check if search pertains to any of them
+            for (let x in t_data) {
+                console.log("t_data[0]", t_data[x]);
+                if (t_data[x][0].toLowerCase().includes(el.value) || t_data[x][1].toLowerCase().includes(el.value)) {
+                    console.log("hkj");
+                    vari.push(t_data[x][0]);
+                    var article = document.createElement("ARTICLE");
+                    article.setAttribute("class", "client-list.row");
+                    var span = document.createElement("SPAN");
+                    var text = document.createTextNode(t_data[x][0] + ", " + t_data[x][1]);
+                    span.appendChild(text);
+                    article.appendChild(span);
+                    article.appendChild(document.createElement("BR"));
+                    article.appendChild(document.createElement("HR"));
+
+                    document.body.appendChild(article);
+                    //`<html><article class="client-list row"><span>` + t_data[x][0] + `, ` + t_data[x][1] + `</span><br></br><hr></hr></article></html>`
+                    console.log("In func", vari);
+                }
+            }
+        }); </script>
 </div>
 {% endblock content %}
