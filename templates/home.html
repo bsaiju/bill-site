@@ -9,12 +9,13 @@
     </div>
     <script>
         var vari = [];
-        var t_data = document.getElementById("list_data").getAttribute("value")
-        t_data = t_data.replace(/'/g, '"')
-        t_data = JSON.parse(t_data)
+        var t_data = document.getElementById("list_data").getAttribute("value");
+        t_data = t_data.replace(/'/g, '"');
+        t_data = JSON.parse(t_data);
         console.log(t_data);
-        let el = document.getElementsByClassName('row searchbar')[0]; el.addEventListener('input', function
-            fElChange(elChangeEvt) {
+        let el = document.getElementsByClassName('row searchbar')[0];
+        el.addEventListener('input', function
+            onChange(elChangeEvt) {
             console.log(t_data);
             vari = [];
             var cli_list = document.getElementsByClassName('client-list.row');
@@ -28,11 +29,62 @@
                     console.log("hkj");
                     vari.push(t_data[x][0]);
                     var article = document.createElement("ARTICLE");
+                    // add id to article (key)
+                    article.setAttribute("id", t_data[x][0] + "@" + t_data[x][1]);
                     article.setAttribute("class", "client-list.row");
                     var span = document.createElement("SPAN");
                     var text = document.createTextNode(t_data[x][0] + ", " + t_data[x][1]);
                     span.appendChild(text);
                     article.appendChild(span);
+
+                    var ve = document.createElement("SELECT");
+                    ve.setAttribute("id", "View/Edit_Select");
+                    ve.setAttribute("onchange", "location = this.value;");
+                    span.appendChild(ve);
+
+                    var ve_opt = document.createElement("option");
+                    ve_opt.setAttribute("value", "View/Edit Option");
+                    var ve_text = document.createTextNode("View/Edit");
+                    ve_opt.appendChild(ve_text);
+
+                    var c_opt = document.createElement("option");
+                    c_opt.setAttribute("value", "register");
+                    var c_text = document.createTextNode("Client");
+                    c_opt.appendChild(c_text);
+
+                    var a_opt = document.createElement("option");
+                    a_opt.setAttribute("value", "Attendance Option");
+                    var a_text = document.createTextNode("Attendance");
+                    a_opt.appendChild(a_text);
+
+                    ve.appendChild(ve_opt);
+                    ve.appendChild(c_opt);
+                    ve.appendChild(a_opt);
+
+                    // var button = document.createElement("a");
+                    // button.setAttribute("href", '#');
+                    // button.setAttribute("class", "button");
+                    // button.textContent = 'View/Edit';
+
+                    // var dd_menu = document.createElement("dropdown-menu");
+                    // dd_menu.appendChild(Object.assign(document.createElement("a"), { class: "dropdown-item", href: '#', textContent: "Bleh" }));
+                    // dd_div.appendChild(button);
+                    // dd_div.appendChild(dd_menu);
+                    // span.appendChild(dd_div);
+
+                    var button = document.createElement("a");
+                    button.setAttribute("href", '#');
+                    button.setAttribute("class", "button");
+                    button.textContent = 'Bill';
+                    span.appendChild(button);
+
+                    var button = document.createElement("a");
+                    button.setAttribute("href", '#');
+                    button.setAttribute("class", "button");
+                    button.textContent = 'Remove';
+                    span.appendChild(button);
+
+
                     article.appendChild(document.createElement("BR"));
                     article.appendChild(document.createElement("HR"));
 

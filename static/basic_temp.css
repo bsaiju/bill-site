@@ -3,6 +3,33 @@
     background-color: rgb(255, 99, 71, 0.6);
     border: 3px solid dodgerblue;
 } */
+.button {
+    background-color: #f3a622;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+}
+
+select {
+    background-color: #f3a622;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+}
 
 .content {
     /* border: 3px solid red; */
